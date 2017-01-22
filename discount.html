@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection"content="telephone=no, email=no" />
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="MobileOptimized" content="320">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="browsermode" content="application">
+    <meta name="x5-page-mode" content="app">
+    <meta name="msapplication-tap-highlight" content="no">
+    </head>
+    <link rel="stylesheet" type="text/css" href="public/css/discount.css" />
+    <script type="text/javascript" src="public/js/vue.min.js"></script>
+    <body id="app">
+           <header class="header">
+                    <h1>优惠先知</h1>
+           </header>
+        <section class="list">
+             <ul>
+                 <li v-for="item of discount">
+                    <div class="sadow">
+                        <div class="boximg"><img :src="item.discountImg" /></div>
+                        <div class="boxtitle">
+                                <h1 class="h1">
+                                    <a v-bind:href="item.discountA">
+                                        {{item.discountH1}}
+                                    </a>
+                                </h1>
+                                <h2 class="h2">{{item.discountH2}}</h2>
+                            <div>
+                                <span class="h4">{{item.discountH4}}</span>
+                                <span class="h3">{{item.discountH3}}</span>
+                            </div>
+                                
+                        </div>
+                        <p class="pPisi">{{item.discountP}}</p>
+                    </div>     
+                 </li>
+             </ul>
+        </section>       
+    </body>
+    <script type="text/javascript" src="public/js/discount.js"></script>
+</html>
+
+
+
+

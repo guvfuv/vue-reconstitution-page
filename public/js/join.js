@@ -1,0 +1,1 @@
+var items=[{sp1:"上新主题",sp2:"英国诗人"},{sp1:"品牌",sp2:"SIEGO西寇"},{sp1:"门店",sp2:"喜荟城店"},{sp1:"地址",sp2:"广州市天河区某某路某某号喜荟城710B"},{sp1:"上新时间",sp2:"2016-11-22"},{sp1:"联系方式",sp2:"010-12342213"}],vm=new Vue({el:"#app",data:{issectionP:!1,items:items,ismt:!0},methods:{btn:function(){this.ismt=!1,this.issectionP=!0}}});

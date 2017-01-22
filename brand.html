@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection"content="telephone=no, email=no" />
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="MobileOptimized" content="320">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="browsermode" content="application">
+    <meta name="x5-page-mode" content="app">
+    <meta name="msapplication-tap-highlight" content="no">
+    </head>
+    <link rel="stylesheet" type="text/css" href="public/css/brand.css"/>
+    <script type="text/javascript" src="public/js/vue.min.js"></script>
+    <body id='app'>
+            <header class="header">
+                    <h1>品牌主页</h1>
+            </header>
+        <div class="banner" id="demo">
+            <p class="p" @click="gzP">+&nbsp加关注</p>
+            <p class="p" @click="gzP" :class="{'curP':iscurP}">√&nbsp已关注</p>
+            <img  class="bannerImg"  :src="bannerImg"/>
+        </div>
+
+    <!-- 内容切换 -->
+            <section class="center" >
+                    <ul class="menu  clearfix">
+                        <li class="li1"><div @click="menucli1" class="menuCur" :class="{'box1':isbox1}">品牌</div></li>
+                        <li class="li2"><div @click="menucli2" class="menuCur" :class="{'box2':isbox2}">风格</div></li>
+                        <li class="li3"><div @click="menucli3" class="menuCur" :class="{'box3':isbox3}">优惠</div></li>
+                        <li class="li4"><div @click="menucli4" class="menuCur" :class="{'box4':isbox4}">上新</div></li>
+                    </ul>
+    <!-- 品牌 -->
+              <div class="centerPp centerCur" :class="{'centerPpCur':iscenterPpCur}">
+                    <div class="title">
+                        <p class="titleP1">AMESU</p>
+                            <img class="titleImg" src="public/img/gpsr.png"/>
+                        <i class="titleI"></i>
+                    </div>
+                    <p class="titleP2">
+                         {{titleP2}}
+                    </p>
+                        <!-- 正常显示位置 -->
+                    <ul>
+                        <li class="listLI" v-for="itemPp of listPp">
+                            <div class="shadowPp">
+                                <img class="logoGps" src="public/img/gpsr.png"/>
+                                <div class="shadowBox">
+                                    <p class="shadowP">{{itemPp.shadowP}}</p>
+                                    <div>
+                                        <img class="shiLogo" :src="itemPp.shiLogo"/>
+                                        <span class="shadowSpn">{{itemPp.shadowSpn}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <!-- 未搜索到位置 -->
+                    <div class="gps" style="display:none">
+                        <img src="public/img/gpsm.png"/>
+                        <p class="gpsP1">没有获取到您的位置</p>
+                        <div class="gpsBox"><img src="public/img/load.png"/><p class="gpsP2">重新获取位置</p></div>
+                    </div>
+              </div>
+    <!-- 风格 -->
+          <div class="centerStyle centerCur" :class="{'centerStyleCur':iscenterStyleCur}">
+                <ul class="clearfix">
+                    <li v-for="itemStyle of listStyle">
+                        <div class="shadowStyle">
+                             <a href="discount1.html"><img :src="itemStyle.styleImg"/></a> 
+                              <p>{{itemStyle.styleP}}</p>
+                        </div>
+                    </li>
+                </ul>
+          </div>                        
+    <!-- 优惠 -->
+          <div class="discount  centerCur"  :class="{'discountCur':isdiscountCur}">
+                 <ul>
+                 <li v-for="itemDiscount of listDiscount">
+                    <div class="discountSadow">
+                        <div class="boximg"><img :src="itemDiscount.discountImg" /></div>
+                        <div class="boxtitle">
+                             <h1 class="h1">
+                                    <a v-bind:href="itemDiscount.discountA">
+                                        {{itemDiscount.discountH1}}
+                                    </a>
+                                </h1>
+                                <h2 class="h2">{{itemDiscount.discountH2}}</h2>
+                            <div>
+                                <span class="h4">{{itemDiscount.discountH4}}</span>
+                                <span class="h3">{{itemDiscount.discountH3}}</span>
+                            </div>
+                                
+                        </div>
+                        <p class="pPisi">{{itemDiscount.discountP}}</p>
+                    </div>     
+                 </li>
+             </ul>
+          </div>
+           <!-- 上新 -->
+        <div class="new centerCur"  :class="{'newCur':isnewCur}">
+                <div class="newShadow" v-for="itemNew of listNew">
+                    <a href="join.html"><img :src="itemNew.newImg" /></a>
+                </div>
+        </div>
+            </section>
+<script type="text/javascript" src="public/js/brand.js"></script>
+    </body>
+</html>
+
+
+  
+

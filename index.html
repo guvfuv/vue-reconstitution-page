@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection"content="telephone=no, email=no" />
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="MobileOptimized" content="320">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="browsermode" content="application">
+    <meta name="x5-page-mode" content="app">
+    <meta name="msapplication-tap-highlight" content="no">
+    </head>
+    <link rel="stylesheet" type="text/css" href="public/css/index.css" />
+    <body id="app">
+           <header class="header">
+                    <h1>我的衣橱</h1>
+           </header>   
+           <section class='content'>
+                   <div class="search"><a href="banner.html"><i><img src="public/img/search.png" alt="" /></i><span>搜索</span></a></div>
+                    <div id="app">
+                            <ul>
+                                <li v-for="item of goods" class="info clearfix"
+                                    >
+                                    <div class="shadow">
+                                        <div class='showimg'><img :src='item.goodsimg' />
+                                               <i class="cricle" @click='clicricle($index)' 
+                                                  :class="{'displ':isdisplay}" >
+                                               <ins :class="{'current':item.iscur}"></ins></i>
+                                               <i class="numbel">{{item.numbel}}</i>
+                                        </div>
+                                        <i class="newclas"><img :src="item.goodsNew" /></i>
+                                        <div class="showp">{{item.goodsp}}</div>
+                                    </div>
+                                </li>
+                            </ul>
+                    </div>
+<!-- fixed按钮 -->
+                 <div class="posi posishow" @click='clishou'>
+                    <div class='ftshadow'><img  src="public/img/show.png"/></div>
+                 </div> 
+
+                 <div class="posi posishow" :class="{'displ':isdisplay}" @click='close'>
+                    <div class='ftshadow' ><img class='closeimg' src="public/img/close.png"/></div>
+                 </div> 
+
+                <div class="posi delete" :class="{'displ':isdisplay}" @click='delete'>
+                    <div class='ftshadow'><img  src="public/img/delete.png"/></div>
+                 </div> 
+        </section>  
+        <!-- 模态窗口 -->
+   <div class='windbg' :class="{'shouwind':iswindbg}">
+        <div class='wind' >
+            <p class="p1">确定要删除造型？</p>
+            <p class="p2" @click='windclose'>取消</p> 
+            <p class="p3" @click='confirm'>确定</p>
+        </div>
+   </div>     
+
+    <script src="public/js/vue.min.js"></script>
+    <script type="text/javascript" src="public/js/index.js"></script>
+    </body>
+</html>
+<script type="text/javascript">
+     window.onload = function(){
+      window.onscroll = function(){
+    var t = document.documentElement.scrollTop || document.body.scrollTop; 
+    var td = document.getElementsByClassName("search")[0];
+    if( t > 120) {
+        td.setAttribute('id','titl');
+    }else if(t < 120){
+        td.removeAttribute("id");
+    } 
+ }
+ }
+</script>
+
+
+

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection"content="telephone=no, email=no" />
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="MobileOptimized" content="320">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="browsermode" content="application">
+    <meta name="x5-page-mode" content="app">
+    <meta name="msapplication-tap-highlight" content="no">
+    </head>
+    <link rel="stylesheet" type="text/css" href="public/css/discount1.css" />
+    <script type="text/javascript" src="public/js/vue.min.js"></script>
+    <body id="app">
+           <header class="header">
+                    <h1>优惠先知</h1>
+           </header>
+        <div class="banner">
+            <img :src="bannerImg"/>
+        </div>
+<!-- 标题 -->
+        <section class="fontSiz" v-for="item1 of maxtitle">
+                <p class="p1">{{item1.p1}}</p>
+                <p class="p2">{{item1.p2}}</p>
+                <p class="p3">{{item1.p3}}</p>
+                <p class="p4">{{item1.p4}}</p>
+        </section>
+<!-- tab栏 -->
+        <section class="tab">
+            <i class="solid"></i>
+                 <ul class="title clearfix">
+                        <li class="li1"><h1 @click="li1">优惠造型</h1><i :class="{'curli1':iscur1}"></i></li>
+                        <li class="li2"><h1 @click="li2">所有造型</h1><i :class="{'curli2':iscur2}"></i></li>
+                </ul> 
+<!-- 状态1 -->
+                <div class="content-li1" :class="{'contentLi1':iscontentLi1}">
+                       <ul>
+                            <li v-for="item2 of contentLi1">
+                                <div class="shadow">
+                                    <img :src="item2.contentLi1Img" />
+                                    <p>{{item2.contentLi1P1}}</p>
+                                </div>
+                            </li>            
+                        </ul> 
+                </div> 
+<!-- 状态2 -->
+               <div class="content-li2" :class="{'contentLi2':iscontentLi2}">
+                       <ul>
+                            <li v-for="item3 of contentLi2">
+                                <div class="shadow">
+                                    <img v-bind:src="item3.contentLi2Img"/>
+                                    <p>{{item3.contentLi2P2}}</p>
+                                </div>
+                            </li>
+                        </ul> 
+                </div> 
+        </section>
+    <script type="text/javascript" src="public/js/discount1.js"></script>
+</html>
+
+
+
+

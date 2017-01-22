@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection"content="telephone=no, email=no" />
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="MobileOptimized" content="320">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="browsermode" content="application">
+    <meta name="x5-page-mode" content="app">
+    <meta name="msapplication-tap-highlight" content="no">
+    </head>
+    <link rel="stylesheet" type="text/css" href="public/css/banner.css"/>
+    <script type="text/javascript" src="public/js/vue.min.js"></script>
+    <body id='app'>
+             <header class="header">
+                    <h1>我的衣橱</h1>
+           </header>
+           <section class="banner"  v-for="item of classify">
+                 <ul>
+                     <li class="title" @click='cli($index)'><h1>{{item.h1}}</h1></li>
+                     <li class="style clearfix"  :class="{'class-li':item.isli}"><!--关联才能起效果-->
+                        <div class="leftDistance">
+                           <span @click='spancli(liitem,item)' 
+                                v-for="liitem of item.liclass" 
+                                :class="{'spa':liitem.isspa}"
+                                >
+                                {{liitem.spaname}}
+                          </span>
+                        </div>   
+                    </li> 
+                </ul>
+        <div class="posi">
+            <a href="brand.html"><div class='ftshadow'><img src="public/img/check.png"/></div></a>
+         </div> 
+           </section> 
+                           
+           <section class="banner"  v-for="item1 of classify1">
+                 <ul>                                     
+                     <li class="title"  @click='clilabel($index)'><h1>{{item1.h11}}</h1></li>
+                     <li class="style clearfix" :class="{'class-label':item1.inslabelli}"><!--关联才能起效果-->
+                           <span id="labelspan"  @click='splabelcli()' 
+                           v-for="itemspan of item1.labelspan"
+                            :class="{'spanlabe':isspanlabe}"
+                           >
+                                {{itemspan.spaname1}}
+                          </span>
+                    </li> 
+                </ul>
+             </section> 
+    </body>
+    <script type="text/javascript" src="public/js/banner.js"></script>
+</html>
